@@ -3,104 +3,418 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offre Exclusive Temu - Ensemble d'ornements Vintage</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome for Icons -->
+    <title>Les filleuls peuvent obtenir - Offres Exclusives Temu</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        temu: {
+                            orange: '#fb7701',
+                            deepOrange: '#ff5000',
+                            lightBg: '#fffdf9',
+                            cardBg: '#fffbf4',
+                            border: '#f1e6d8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f7f7f8;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-    <!-- Header / Banner Urgent -->
-    <div class="top-banner">
-        🔥 Offre Spéciale Temu • Prix Limité à <strong>3 DH</strong> !
-    </div>
+        /* Pulse animation for action CTA buttons */
+        @keyframes subtle-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .btn-pulse {
+            animation: subtle-pulse 2.5s infinite ease-in-out;
+        }
+
+        /* Toast Popup styling */
+        #toast {
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="text-gray-900 antialiased min-h-screen pb-12">
+
+    <!-- Top Announcement Bar -->
+    <header class="bg-gradient-to-r from-temu-deepOrange to-temu-orange text-white text-center py-2.5 px-4 font-bold text-sm shadow-md flex items-center justify-center gap-2">
+        <i class="fa-solid fa-fire text-yellow-300 animate-bounce"></i>
+        <span>Offres d'Affiliation Temu & Exclusive Deals pour Filleuls</span>
+    </header>
 
     <!-- Main Container -->
-    <div class="container">
-        
-        <!-- Badge Flash Deal -->
-        <div class="deal-header">
-            <span class="badge"><i class="fa-solid fa-bolt"></i> Vente Flash Exclusives</span>
-            <div class="timer" id="timer">Offre expire dans: <span id="time">14:59</span></div>
+    <main class="max-w-3xl mx-auto px-4 py-6">
+
+        <!-- Title Section -->
+        <div class="flex items-center justify-between mb-4">
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-black tracking-tight flex items-center gap-2">
+                Les filleuls peuvent obtenir 
+                <span class="inline-flex items-center justify-center text-gray-500 hover:text-gray-700 cursor-pointer text-base" title="En savoir plus sur les conditions d'attribution des coupons et réductions Temu.">
+                    <i class="fa-regular fa-circle-question"></i>
+                </span>
+            </h1>
         </div>
 
-        <!-- Product Image & Card -->
-        <div class="product-card">
-            <div class="image-wrapper">
-                <span class="discount-tag">-95%</span>
-                <img src="https://via.placeholder.com/600x600/ff5000/ffffff?text=58+Pcs+Mini+Bike+Set" alt="Ensemble de 58 pièces d'ornements de vélo modèle vintage" id="main-img">
+        <!-- Filter Tabs & Search Bar -->
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 mb-6 space-y-3">
+            <div class="relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text" id="searchInput" placeholder="Rechercher une offre, un code (ex: alq238205)..." class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-temu-orange focus:bg-white transition">
             </div>
 
-            <div class="product-info">
-                <h1 class="product-title">Ensemble de 58 pièces d'ornements de vélo modèle vintage</h1>
-                
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star-half-stroke"></i>
-                    <span>4.9 (4,850+ avis)</span>
-                </div>
-
-                <div class="price-section">
-                    <span class="current-price">3 DH</span>
-                    <span class="original-price">120 DH</span>
-                    <span class="savings">Économisez 117 DH</span>
-                </div>
-
-                <ul class="warning-list">
-                    <li><i class="fa-solid fa-triangle-exclamation"></i> Chaque utilisateur de l'application ne peut en profiter qu'une seule fois.</li>
-                    <li><i class="fa-solid fa-info-circle"></i> La baisse de prix peut varier. Veuillez vous référer à ce qui est affiché sur la page Temu.</li>
-                </ul>
-
-                <!-- Main CTA Button -->
-                <a href="https://temu.to/k/ekpnux0dtf8" target="_blank" rel="noopener" class="cta-button pulse">
-                    <i class="fa-solid fa-bag-shopping"></i> Profiter de l'offre sur Temu (3 DH)
-                </a>
-
-                <div class="guarantees">
-                    <span><i class="fa-solid fa-truck-fast"></i> Livraison Rapide</span>
-                    <span><i class="fa-solid fa-shield-halved"></i> Paiement Sécurisé</span>
-                </div>
+            <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs sm:text-sm font-medium no-scrollbar">
+                <button onclick="filterOffers('all')" class="filter-btn active px-3.5 py-1.5 rounded-full bg-temu-orange text-white whitespace-nowrap transition shadow-sm">
+                    Toutes les offres
+                </button>
+                <button onclick="filterOffers('nouvel')" class="filter-btn px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 whitespace-nowrap transition">
+                    Nouvel utilisateur
+                </button>
+                <button onclick="filterOffers('tous')" class="filter-btn px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 whitespace-nowrap transition">
+                    Tous les utilisateurs
+                </button>
+                <button onclick="filterOffers('affilie')" class="filter-btn px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 whitespace-nowrap transition">
+                    Nouveaux Affiliés
+                </button>
             </div>
         </div>
 
-        <!-- Features / Highlights -->
-        <div class="features-section">
-            <h2>Pourquoi choisir cet ensemble ?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <i class="fa-solid fa-puzzle-piece"></i>
-                    <h3>58 Pièces Complètes</h3>
-                    <p>Un kit détaillé idéal pour la décoration, les miniatures et les passionnés de modèles vintage.</p>
+        <!-- Offers Cards List -->
+        <div id="offersList" class="space-y-4">
+
+            <!-- Card 1: 30% de réduction -->
+            <div class="offer-card bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-md transition" data-category="nouvel" data-search="30% de réduction alq238205 nouvel utilisateur">
+                <div class="bg-temu-lightBg p-4 border-b border-gray-100 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-orange-100 text-temu-orange flex items-center justify-center shrink-0 mt-0.5 font-bold text-lg">
+                            %
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-gray-900 leading-snug">30% de réduction</h2>
+                            <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Nouvel utilisateur de l’application</p>
+                        </div>
+                    </div>
+                    <a href="https://temu.to/k/e7qzfn9b8th" target="_blank" rel="noopener" class="btn-pulse bg-temu-orange hover:bg-temu-deepOrange text-white text-sm font-bold px-6 py-2 rounded-full shadow-md transition flex items-center gap-1.5">
+                        <span>Partager</span>
+                    </a>
                 </div>
-                <div class="feature-item">
-                    <i class="fa-solid fa-gem"></i>
-                    <h3>Qualité & Détails</h3>
-                    <p>Finition soignée pour un rendu réaliste et rétro unique.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fa-solid fa-tags"></i>
-                    <h3>Prix Inégalable</h3>
-                    <p>Profitez du tarif exceptionnel réservé aux utilisateurs de l'application Temu.</p>
+                <div class="p-4 bg-white text-xs sm:text-sm text-gray-700 flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-gray-500 font-medium">Code :</span>
+                        <button onclick="copyToClipboard('alq238205', 'Code 30% copié !')" class="font-mono font-semibold text-gray-900 hover:text-temu-orange bg-gray-50 hover:bg-orange-50 px-2.5 py-1 rounded-md border border-gray-200 transition flex items-center gap-1.5">
+                            <span>alq238205</span>
+                            <i class="fa-regular fa-copy text-gray-400 text-xs"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
+
+            <!-- Card 2: Lot de coupons de 1,000 DH -->
+            <div class="offer-card bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-md transition" data-category="nouvel" data-search="lot de coupons de 1000 dh 1,000 dh alq238205 e7qzfn9b8th">
+                <div class="bg-temu-lightBg p-4 border-b border-gray-100 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-orange-100 text-temu-orange flex items-center justify-center shrink-0 mt-0.5 font-bold text-lg">
+                            <i class="fa-solid fa-ticket"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-gray-900 leading-snug">Lot de coupons de 1,000 DH</h2>
+                            <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Nouvel utilisateur de l’application</p>
+                        </div>
+                    </div>
+                    <a href="https://temu.to/k/e7qzfn9b8th" target="_blank" rel="noopener" class="btn-pulse bg-temu-orange hover:bg-temu-deepOrange text-white text-sm font-bold px-6 py-2 rounded-full shadow-md transition flex items-center gap-1.5">
+                        <span>Partager</span>
+                    </a>
+                </div>
+                <div class="p-4 bg-white text-xs sm:text-sm text-gray-700 space-y-2.5">
+                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-gray-500 font-medium">Lien général :</span>
+                            <button onclick="copyToClipboard('https://temu.to/k/e7qzfn9b8th', 'Lien copié !')" class="text-temu-orange hover:underline font-medium bg-orange-50 px-2 py-0.5 rounded border border-orange-100 flex items-center gap-1 max-w-[200px] sm:max-w-none truncate">
+                                <span class="truncate">https://temu.to/k/e7qzfn9b8th</span>
+                                <i class="fa-regular fa-copy text-xs shrink-0"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-gray-500 font-medium">Code :</span>
+                            <button onclick="copyToClipboard('alq238205', 'Code copié !')" class="font-mono font-semibold text-gray-900 hover:text-temu-orange bg-gray-50 hover:bg-orange-50 px-2.5 py-1 rounded-md border border-gray-200 transition flex items-center gap-1.5">
+                                <span>alq238205</span>
+                                <i class="fa-regular fa-copy text-gray-400 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="toggleQRModal()" class="text-gray-800 hover:text-temu-orange font-semibold text-xs sm:text-sm inline-flex items-center gap-1 transition">
+                            Obtenir le code QR <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Prix abordable -->
+            <div class="offer-card bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-md transition" data-category="nouvel" data-search="prix abordable alt901922 eb74ajppv1e">
+                <div class="bg-temu-lightBg p-4 border-b border-gray-100 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-orange-100 text-temu-orange flex items-center justify-center shrink-0 mt-0.5 font-bold text-lg">
+                            <i class="fa-solid fa-tag"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-gray-900 leading-snug">Prix abordable</h2>
+                            <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Nouvel utilisateur de l’application</p>
+                        </div>
+                    </div>
+                    <a href="https://temu.to/k/eb74ajppv1e" target="_blank" rel="noopener" class="btn-pulse bg-temu-orange hover:bg-temu-deepOrange text-white text-sm font-bold px-6 py-2 rounded-full shadow-md transition flex items-center gap-1.5">
+                        <span>Partager</span>
+                    </a>
+                </div>
+                <div class="p-4 bg-white text-xs sm:text-sm text-gray-700 flex flex-wrap items-center gap-x-6 gap-y-2">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-gray-500 font-medium">Lien général :</span>
+                        <button onclick="copyToClipboard('https://temu.to/k/eb74ajppv1e', 'Lien copié !')" class="text-temu-orange hover:underline font-medium bg-orange-50 px-2 py-0.5 rounded border border-orange-100 flex items-center gap-1 max-w-[200px] sm:max-w-none truncate">
+                            <span class="truncate">https://temu.to/k/eb74ajppv1e</span>
+                            <i class="fa-regular fa-copy text-xs shrink-0"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-gray-500 font-medium">Code :</span>
+                        <button onclick="copyToClipboard('alt901922', 'Code copié !')" class="font-mono font-semibold text-gray-900 hover:text-temu-orange bg-gray-50 hover:bg-orange-50 px-2.5 py-1 rounded-md border border-gray-200 transition flex items-center gap-1.5">
+                            <span>alt901922</span>
+                            <i class="fa-regular fa-copy text-gray-400 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Sélection du moment sur les articles onéreux -->
+            <div class="offer-card bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-md transition" data-category="nouvel" data-search="sélection du moment sur les articles onéreux">
+                <div class="bg-temu-lightBg p-4 border-b border-gray-100 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-orange-100 text-temu-orange flex items-center justify-center shrink-0 mt-0.5 font-bold text-lg">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-gray-900 leading-snug">Sélection du moment sur les articles onéreux</h2>
+                            <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Nouvel utilisateur de l’application</p>
+                        </div>
+                    </div>
+                    <a href="https://temu.to/k/e7qzfn9b8th" target="_blank" rel="noopener" class="btn-pulse bg-temu-orange hover:bg-temu-deepOrange text-white text-sm font-bold px-6 py-2 rounded-full shadow-md transition flex items-center gap-1.5">
+                        <span>Partager</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 5: Faites de belles économies -->
+            <div class="offer-card bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-md transition" data-category="tous" data-search="faites de belles économies tous les utilisateurs e7qzfn9b8th">
+                <div class="bg-temu-lightBg p-4 border-b border-gray-100 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-orange-100 text-temu-orange flex items-center justify-center shrink-0 mt-0.5 font-bold text-lg">
+                            <i class="fa-solid fa-percent"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-gray-900 leading-snug">Faites de belles économies</h2>
+                            <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Tous les utilisateurs</p>
+                        </div>
+                    </div>
+                    <a href="https://temu.to/k/e7qzfn9b8th" target="_blank" rel="noopener" class="btn-pulse bg-temu-orange hover:bg-temu-deepOrange text-white text-sm font-bold px-6 py-2 rounded-full shadow-md transition flex items-center gap-1.5">
+                        <span>Partager</span>
+                    </a>
+                </div>
+                <div class="p-4 bg-white text-xs sm:text-sm text-gray-700 flex items-center gap-1.5">
+                    <span class="text-gray-500 font-medium">Lien général :</span>
+                    <button onclick="copyToClipboard('https://temu.to/k/e7qzfn9b8th', 'Lien copié !')" class="text-temu-orange hover:underline font-medium bg-orange-50 px-2 py-0.5 rounded border border-orange-100 flex items-center gap-1 max-w-[220px] sm:max-w-none truncate">
+                        <span class="truncate">https://temu.to/k/e7qzfn9b8th</span>
+                        <i class="fa-regular fa-copy text-xs shrink-0"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 6: Cadeau de nouveaux Affiliés de 20 DH -->
+            <div class="offer-card bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-md transition" data-category="affilie" data-search="cadeau de nouveaux affiliés de 20 dh ey3uf7djtbq all111659">
+                <div class="bg-temu-lightBg p-4 border-b border-gray-100 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-orange-100 text-temu-orange flex items-center justify-center shrink-0 mt-0.5 font-bold text-lg">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-gray-900 leading-snug">Cadeau de nouveaux Affiliés de 20 DH</h2>
+                            <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Réservé uniquement aux nouveaux Affiliés invités</p>
+                        </div>
+                    </div>
+                    <a href="https://temu.to/k/ey3uf7djtbq" target="_blank" rel="noopener" class="btn-pulse bg-temu-orange hover:bg-temu-deepOrange text-white text-sm font-bold px-6 py-2 rounded-full shadow-md transition flex items-center gap-1.5">
+                        <span>Partager</span>
+                    </a>
+                </div>
+                <div class="p-4 bg-white text-xs sm:text-sm text-gray-700 flex flex-wrap items-center gap-x-6 gap-y-2">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-gray-500 font-medium">Lien général :</span>
+                        <button onclick="copyToClipboard('https://temu.to/k/ey3uf7djtbq', 'Lien copié !')" class="text-temu-orange hover:underline font-medium bg-orange-50 px-2 py-0.5 rounded border border-orange-100 flex items-center gap-1 max-w-[200px] sm:max-w-none truncate">
+                            <span class="truncate">https://temu.to/k/ey3uf7djtbq</span>
+                            <i class="fa-regular fa-copy text-xs shrink-0"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-gray-500 font-medium">Code :</span>
+                        <button onclick="copyToClipboard('all111659', 'Code copié !')" class="font-mono font-semibold text-gray-900 hover:text-temu-orange bg-gray-50 hover:bg-orange-50 px-2.5 py-1 rounded-md border border-gray-200 transition flex items-center gap-1.5">
+                            <span>all111659</span>
+                            <i class="fa-regular fa-copy text-gray-400 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
+        <!-- No Results Fallback -->
+        <div id="noResults" class="hidden text-center py-12 bg-white rounded-2xl border border-gray-100 mt-4">
+            <i class="fa-solid fa-ghost text-4xl text-gray-300 mb-2"></i>
+            <p class="text-gray-500 font-medium">Aucune offre ne correspond à votre recherche.</p>
+        </div>
+
+    </main>
+
+    <!-- QR Code Modal Popup -->
+    <div id="qrModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl p-6 max-w-xs w-full text-center relative shadow-2xl animate-fade-in">
+            <button onclick="toggleQRModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl font-bold">
+                &times;
+            </button>
+            <h3 class="text-lg font-bold text-gray-900 mb-1">Code QR de l'offre</h3>
+            <p class="text-xs text-gray-500 mb-4">Scannez le code QR pour ouvrir l'offre directement sur Temu</p>
+            
+            <div class="bg-orange-50 p-4 rounded-2xl border border-orange-100 inline-block mb-4">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://temu.to/k/e7qzfn9b8th" alt="QR Code Temu" class="w-44 h-44 mx-auto rounded-lg shadow-sm">
+            </div>
+
+            <button onclick="copyToClipboard('https://temu.to/k/e7qzfn9b8th', 'Lien copié !')" class="w-full bg-temu-orange text-white py-2.5 rounded-full font-bold text-sm hover:bg-temu-deepOrange transition flex items-center justify-center gap-2">
+                <i class="fa-regular fa-copy"></i> Copier le lien
+            </button>
+        </div>
     </div>
 
-    <!-- Sticky Bottom Bar for Mobile -->
-    <div class="mobile-sticky-bar">
-        <div class="price-box">
-            <span class="p-title">Prix Offre:</span>
-            <span class="p-val">3 DH</span>
-        </div>
-        <a href="https://temu.to/k/ekpnux0dtf8" target="_blank" rel="noopener" class="sticky-cta">
-            Obtenir sur Temu
-        </a>
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full shadow-xl opacity-0 pointer-events-none z-50 flex items-center gap-2 border border-gray-700">
+        <i class="fa-solid fa-circle-check text-green-400"></i>
+        <span id="toastMsg">Copié avec succès !</span>
     </div>
 
-    <script src="script.js"></script>
+    <!-- JavaScript Functions -->
+    <script>
+        // Copy text to clipboard with legacy fallback for iframe context
+        function copyToClipboard(text, customMessage) {
+            try {
+                const tempInput = document.createElement("input");
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                showToast(customMessage || "Copié dans le presse-papier !");
+            } catch (err) {
+                showToast("Erreur lors de la copie.");
+            }
+        }
+
+        // Show Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2200);
+        }
+
+        // Toggle QR Code Modal
+        function toggleQRModal() {
+            const modal = document.getElementById('qrModal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Filter Offers by Tab Category
+        function filterOffers(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-temu-orange', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-gray-100', 'text-gray-700');
+            });
+
+            event.currentTarget.classList.remove('bg-gray-100', 'text-gray-700');
+            event.currentTarget.classList.add('bg-temu-orange', 'text-white', 'shadow-sm');
+
+            const cards = document.querySelectorAll('.offer-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            toggleNoResults(visibleCount);
+        }
+
+        // Real-time Search Filter
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.offer-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const searchableText = card.getAttribute('data-search').toLowerCase();
+                if (searchableText.includes(query)) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            toggleNoResults(visibleCount);
+        });
+
+        function toggleNoResults(count) {
+            const noResults = document.getElementById('noResults');
+            if (count === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+    </script>
 </body>
 </html>
